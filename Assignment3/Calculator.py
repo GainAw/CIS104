@@ -1,12 +1,41 @@
 def calculator():
-    first_num = None
     cont = True
+    opr_list = ["+","-","*","/","^"]
+    func_list = ["","","","","","","","","",""]
     while cont == True:
         right = True
-        if first_num == None:
-            first_num = int(input ("What is yo first number? "))
-        second_num = int(input ("What is yo second number? "))
-        opr = input (
+        first_num = input("What is first stuff either number or operator ")
+        try:
+            first_num = float(first_num)
+        except ValueError:
+            try:
+                if answer == None:
+                    print("Ya dingus you would need to do an operation first!!!")
+                    continue
+            except NameError:
+                print("Ya dingus you would need to do an operation first!!!")
+                continue
+            if first_num in opr_list:
+                opr_list.index(first_num)
+                opr = first_num
+                first_num = answer
+        else:
+            print (first_num)
+        second_num = float(input ("What is yo second number? "))
+        print (second_num)
+        try:
+            if opr == None:
+                opr = input (
+        """
+        What do you wish to do with the numbers?\n
+        +: add\n
+        -: subtract\n
+        *: multiply\n
+        /: divide\n
+        ^: to power of\n
+        """)
+        except NameError:
+            opr = input (
         """
         What do you wish to do with the numbers?\n
         +: add\n
@@ -30,7 +59,6 @@ def calculator():
             right = False
         if right == True:
             print("{} {} {} = {}".format(first_num, opr, second_num, answer))
-            first_num = answer
         else:
             print("Please try again!")
             continue
@@ -39,7 +67,4 @@ def calculator():
             cont = True
         elif roon == "n" or roon == "N":
             cont = False
-        return (cont)
-
-if __name__ == '__main__':
-    calculator()
+            return (cont)
